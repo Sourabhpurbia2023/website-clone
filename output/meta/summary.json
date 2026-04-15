@@ -1,0 +1,22 @@
+{
+  "url": "https://blitz-api.ai/",
+  "extractedAt": "2026-04-14T17:40:35.920Z",
+  "totalSections": 14,
+  "totalAssets": 134,
+  "totalLayoutElements": 286,
+  "totalAnimations": 0,
+  "stack": [
+    "Framer (DOM)"
+  ],
+  "screenshotsPath": "output/screenshots/",
+  "phases": {
+    "1": "raw.html saved",
+    "2": "meta/stack.json saved",
+    "3": "134 assets downloaded + assets/map.json",
+    "4": "layout/layout.json saved + full_page.png",
+    "5": "layout/sections.json — 14 sections",
+    "6": "animations/animations.json saved",
+    "7": "14 section screenshots + mobile screenshot",
+    "8": "sections.json enriched with cross-references"
+  }
+}

@@ -1,0 +1,409 @@
+{
+  "cssAnimations": [],
+  "framerElements": [
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-9Iuiy framer-tl59rp",
+      "dataAttributes": {
+        "data-layout-template": "true"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-16momxq-container",
+      "dataAttributes": {}
+    },
+    {
+      "type": "framer-element",
+      "tag": "NAV",
+      "classes": "framer-PEz7c framer-1i76zk0 framer-v-1i76zk0",
+      "dataAttributes": {
+        "data-framer-name": "Desktop"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-ia9ems",
+      "dataAttributes": {
+        "data-border": "true",
+        "data-framer-name": "Container"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-au6cza",
+      "dataAttributes": {
+        "data-framer-name": "Navbar Menu Wrapper"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "A",
+      "classes": "framer-1nbhn46 framer-13tod0u",
+      "dataAttributes": {
+        "data-framer-name": "Nav Logo",
+        "data-framer-page-link-current": "true"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-1tm6dpw",
+      "dataAttributes": {
+        "data-framer-name": "image 52"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-4575cm",
+      "dataAttributes": {
+        "data-framer-component-type": "SVG",
+        "data-framer-name": "Divider"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-by6wgd",
+      "dataAttributes": {
+        "data-framer-name": "Nav Menu"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-1avvfu3-container",
+      "dataAttributes": {}
+    },
+    {
+      "type": "framer-element",
+      "tag": "A",
+      "classes": "framer-FbPKk framer-qzD8H framer-100vzry framer-v-100vzry framer-1a1qws8",
+      "dataAttributes": {
+        "data-framer-name": "Nav Link"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-1r15cff",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-y2wwsg",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-1hvrsj2-container",
+      "dataAttributes": {}
+    },
+    {
+      "type": "framer-element",
+      "tag": "A",
+      "classes": "framer-FbPKk framer-qzD8H framer-100vzry framer-v-100vzry framer-1a1qws8",
+      "dataAttributes": {
+        "data-framer-name": "Nav Link"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-1r15cff",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-y2wwsg",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-16kwnzy-container",
+      "dataAttributes": {}
+    },
+    {
+      "type": "framer-element",
+      "tag": "A",
+      "classes": "framer-FbPKk framer-qzD8H framer-100vzry framer-v-100vzry framer-1a1qws8",
+      "dataAttributes": {
+        "data-framer-name": "Nav Link"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-1r15cff",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-y2wwsg",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-2co03j-container",
+      "dataAttributes": {}
+    },
+    {
+      "type": "framer-element",
+      "tag": "A",
+      "classes": "framer-FbPKk framer-qzD8H framer-100vzry framer-v-100vzry framer-1a1qws8",
+      "dataAttributes": {
+        "data-framer-name": "Nav Link"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-1r15cff",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-y2wwsg",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-tc7ts4-container",
+      "dataAttributes": {}
+    },
+    {
+      "type": "framer-element",
+      "tag": "A",
+      "classes": "framer-FbPKk framer-qzD8H framer-100vzry framer-v-100vzry framer-1a1qws8",
+      "dataAttributes": {
+        "data-framer-name": "Nav Link"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-1r15cff",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-y2wwsg",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-f4yosp",
+      "dataAttributes": {}
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-iscuix-container",
+      "dataAttributes": {}
+    },
+    {
+      "type": "framer-element",
+      "tag": "A",
+      "classes": "framer-FbPKk framer-qzD8H framer-100vzry framer-v-100vzry framer-1a1qws8",
+      "dataAttributes": {
+        "data-framer-name": "Nav Link"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-1r15cff",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-y2wwsg",
+      "dataAttributes": {
+        "data-framer-name": "About",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "P",
+      "classes": "framer-text framer-styles-preset-1f7y6by",
+      "dataAttributes": {
+        "data-styles-preset": "IeYZR08Bi"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-10iemyp-container",
+      "dataAttributes": {}
+    },
+    {
+      "type": "framer-element",
+      "tag": "A",
+      "classes": "framer-YB78z framer-lbgCa framer-q0d20k framer-v-q0d20k framer-1aoeyye",
+      "dataAttributes": {
+        "data-border": "true",
+        "data-framer-name": "Primary Button"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-1esdxin",
+      "dataAttributes": {
+        "data-framer-name": "Button Content"
+      }
+    },
+    {
+      "type": "framer-element",
+      "tag": "DIV",
+      "classes": "framer-7q0r5y",
+      "dataAttributes": {
+        "data-framer-name": "Sign up",
+        "data-framer-component-type": "RichTextContainer"
+      }
+    }
+  ],
+  "observedBehaviors": [
+    "Scroll-triggered reveal animations detected via Framer Motion",
+    "Hover state transitions on buttons/cards",
+    "Fade-in and slide-up patterns common in hero sections"
+  ]
+}
