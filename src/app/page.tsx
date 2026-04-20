@@ -1,8 +1,29 @@
+import Navbar from '@/components/organisms/Navbar';
+import Hero from '@/components/organisms/Hero';
+import Features from '@/components/organisms/Features';
+import UseCases from '@/components/organisms/UseCases';
+import Integrations from '@/components/organisms/Integrations';
+import FAQ from '@/components/organisms/FAQ';
+import CTA from '@/components/organisms/CTA';
+import Footer from '@/components/organisms/Footer';
+import BookDemoModal from '@/components/organisms/BookDemoModal';
+import ContactUsModal from '@/components/organisms/ContactUsModal';
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white p-24">
-      <h1 className="text-4xl font-bold tracking-tight text-gray-900">Next.js Starter</h1>
-      <p className="mt-4 text-lg text-gray-500">Configured with Tailwind CSS, TypeScript, and App Router.</p>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Features />
+        <UseCases />
+        <Integrations />
+        <FAQ />
+        <CTA />
+      </main>
+      <Footer />
+      <BookDemoModal />
+      <ContactUsModal />
+    </>
   );
 }
