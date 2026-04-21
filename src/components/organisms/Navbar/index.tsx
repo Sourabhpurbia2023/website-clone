@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import Link from 'next/link';
 
 const navLinks = [
   { label: 'Features', href: '#features' },
@@ -16,6 +15,11 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setMobileOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -53,11 +57,24 @@ export default function Navbar() {
         }}
       >
         {/* Logo — extracted real asset */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+        <button
+          type="button"
+          onClick={scrollToTop}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            flexShrink: 0,
+            background: 'transparent',
+            border: 'none',
+            padding: 0,
+            cursor: 'pointer',
+          }}
+          aria-label="Scroll to top"
+        >
           <span style={{ fontSize: '22px', fontWeight: 800, color: '#111827', letterSpacing: '-0.02em' }}>
             VisaFlow
           </span>
-        </Link>
+        </button>
 
         {/* Desktop Links */}
         <div

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { connectToDatabase } from '@/lib/mongodb';
+import { validateLeadForm } from '@/lib/leadValidation';
 import Contactus from '@/models/Contactus';
 
 export const runtime = 'nodejs';
@@ -16,14 +17,16 @@ export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ContactPayload;
 
-    const name = body.name?.trim() ?? '';
-    const email = body.email?.trim() ?? '';
-    const number = (body.number ?? body.phone ?? '').trim();
-    const message = body.message?.trim() ?? '';
+    const { values, errors } = validateLeadForm({
+      name: body.name ?? '',
+      email: body.email ?? '',
+      phone: body.number ?? body.phone ?? '',
+      message: body.message ?? '',
+    });
 
-    if (!name || !email || !number) {
+    if (Object.keys(errors).length > 0) {
       return NextResponse.json(
-        { success: false, message: 'Name, Email, and Number are required.' },
+        { success: false, message: 'Please fix the highlighted fields.', fieldErrors: errors },
         { status: 400 }
       );
     }
@@ -31,10 +34,10 @@ export async function POST(request: Request) {
     await connectToDatabase();
 
     const created = await Contactus.create({
-      name,
-      email,
-      number,
-      message,
+      name: values.name,
+      email: values.email,
+      number: values.phone,
+      message: values.message,
     });
 
     return NextResponse.json(

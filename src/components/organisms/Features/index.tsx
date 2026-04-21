@@ -11,14 +11,14 @@ import {
   UserRoundPlus,
 } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 const featureTabs = [
   {
     title: 'Lead management',
     eyebrow: 'Pipeline clarity',
     description: 'Capture new enquiries, assign owners, and move prospects from first touch to consultation.',
-    imageSrc: '/assets-feature-tabs/lead-management.png',
+    imageSrc: '/assets-feature-tabs/lead-management-v2.png',
     mediaType: 'image',
     icon: UserRoundPlus,
     accent: '#2563eb',
@@ -28,7 +28,7 @@ const featureTabs = [
     title: 'Invoicing',
     eyebrow: 'Cleaner billing',
     description: 'Create service invoices, track balances, and keep every visa payment request tied to the client.',
-    imageSrc: '/assets-feature-tabs/invoicing.png',
+    imageSrc: '/assets-feature-tabs/invoicing-v2.png',
     mediaType: 'image',
     icon: ReceiptText,
     accent: '#0f766e',
@@ -48,7 +48,7 @@ const featureTabs = [
     title: 'Document vault',
     eyebrow: 'Secure files',
     description: 'Organize passports, bank statements, forms, and approvals in one client-ready document space.',
-    imageSrc: '/assets-feature-tabs/document-vault.png',
+    imageSrc: '/assets-feature-tabs/document-vault-v2.png',
     mediaType: 'image',
     icon: FolderLock,
     accent: '#2563eb',
@@ -68,8 +68,8 @@ const featureTabs = [
     title: 'Admin and Client Portal',
     eyebrow: 'Two clean workspaces',
     description: 'Give internal teams operational controls while clients see status, requests, and next actions.',
-    imageSrc: '/assets-feature-tabs/admin-client-portal.webm',
-    mediaType: 'video',
+    imageSrc: '/assets-feature-tabs/admin-client-portal.png',
+    mediaType: 'image',
     icon: LayoutDashboard,
     accent: '#ca8a04',
     metrics: ['24 active clients', '6 admin tasks', '14 client updates'],
@@ -97,24 +97,10 @@ export default function Features() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const [activeTab, setActiveTab] = useState(0);
-  const [manualTabSelection, setManualTabSelection] = useState(false);
-  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   const activeFeature = featureTabs[activeTab];
   const ActiveIcon = activeFeature.icon;
-  const showImage = !failedImages[activeFeature.imageSrc];
+  const showImage = true;
   const showVideo = showImage && activeFeature.mediaType === 'video';
-
-  useEffect(() => {
-    if (!inView || manualTabSelection) {
-      return;
-    }
-
-    const intervalId = window.setInterval(() => {
-      setActiveTab((currentTab) => (currentTab + 1) % featureTabs.length);
-    }, 3000);
-
-    return () => window.clearInterval(intervalId);
-  }, [inView, manualTabSelection]);
 
   return (
     <section id="features" ref={ref} className="feature-showcase-section">
@@ -157,10 +143,7 @@ export default function Features() {
                 aria-selected={isActive}
                 aria-controls="feature-preview-panel"
                 className={`feature-tab ${isActive ? 'feature-tab-active' : ''}`}
-                onClick={() => {
-                  setManualTabSelection(true);
-                  setActiveTab(index);
-                }}
+                onClick={() => setActiveTab(index)}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -214,21 +197,15 @@ export default function Features() {
                           loop
                           playsInline
                           preload="metadata"
-                          onError={() =>
-                            setFailedImages((current) => ({ ...current, [activeFeature.imageSrc]: true }))
-                          }
                         />
                       ) : (
                         <Image
                           src={activeFeature.imageSrc}
                           alt={`${activeFeature.title} product preview`}
                           fill
-                          priority={activeTab === 0}
+                          loading="eager"
                           sizes="(max-width: 980px) 100vw, 1100px"
                           className="feature-lead-product-image"
-                          onError={() =>
-                            setFailedImages((current) => ({ ...current, [activeFeature.imageSrc]: true }))
-                          }
                         />
                       )}
                     </div>
@@ -266,11 +243,9 @@ export default function Features() {
                             src={activeFeature.imageSrc}
                             alt={`${activeFeature.title} product preview`}
                             fill
+                            loading="eager"
                             sizes="(max-width: 980px) 100vw, 42vw"
                             className="feature-product-image"
-                            onError={() =>
-                              setFailedImages((current) => ({ ...current, [activeFeature.imageSrc]: true }))
-                            }
                           />
                         ) : (
                           <div className="feature-image-placeholder">

@@ -1,4 +1,5 @@
 import mongoose, { Schema, type InferSchemaType, type Model } from 'mongoose';
+import { EMAIL_PATTERN, PHONE_PATTERN } from '@/lib/leadValidation';
 
 const ClientTakeaDemoDetailsSchema = new Schema(
   {
@@ -12,11 +13,13 @@ const ClientTakeaDemoDetailsSchema = new Schema(
       required: true,
       trim: true,
       lowercase: true,
+      match: EMAIL_PATTERN,
     },
     number: {
       type: String,
       required: true,
       trim: true,
+      match: PHONE_PATTERN,
     },
     message: {
       type: String,

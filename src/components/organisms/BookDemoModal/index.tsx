@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { CSSProperties, FormEvent } from 'react';
+import { sanitizePhoneNumberInput, validateLeadForm, type LeadFieldErrors } from '@/lib/leadValidation';
 
 type DemoLead = {
   name: string;
@@ -19,6 +20,7 @@ export default function BookDemoModal() {
   const [open, setOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState<LeadFieldErrors>({});
 
   const [form, setForm] = useState({
     name: '',
@@ -30,6 +32,7 @@ export default function BookDemoModal() {
   const closeModal = useCallback(() => {
     setOpen(false);
     setError('');
+    setFieldErrors({});
     if (window.location.hash === '#take-demo') {
       window.history.replaceState(null, '', window.location.pathname + window.location.search);
     }
@@ -56,7 +59,52 @@ export default function BookDemoModal() {
   }, [closeModal, open]);
 
   const updateField = (field: keyof typeof form, value: string) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
+    setForm((prev) => ({
+      ...prev,
+      [field]: field === 'phone' ? sanitizePhoneNumberInput(value) : value,
+    }));
+    setFieldErrors((prev) => {
+      if (field === 'message') {
+        return prev;
+      }
+
+      if (!prev[field]) {
+        return prev;
+      }
+
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+  };
+
+  const handlePhoneKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const allowedKeys = [
+      'Backspace',
+      'Delete',
+      'Tab',
+      'ArrowLeft',
+      'ArrowRight',
+      'Home',
+      'End',
+      'Enter',
+    ];
+
+    if (allowedKeys.includes(event.key) || event.ctrlKey || event.metaKey || event.altKey) {
+      return;
+    }
+
+    if (event.key === '+') {
+      if ((event.currentTarget.selectionStart ?? 0) !== 0 || event.currentTarget.value.includes('+')) {
+        event.preventDefault();
+      }
+
+      return;
+    }
+
+    if (!/^[0-9]$/.test(event.key)) {
+      event.preventDefault();
+    }
   };
 
   const storeLeadLocally = (payload: DemoLead) => {
@@ -74,19 +122,22 @@ export default function BookDemoModal() {
     event.preventDefault();
     setError('');
 
-    if (!form.name.trim() || !form.email.trim() || !form.phone.trim()) {
-      setError('Please fill Name, Email, and Number.');
+    const validation = validateLeadForm(form);
+    if (Object.keys(validation.errors).length > 0) {
+      setFieldErrors(validation.errors);
+      setError('Please fix the highlighted fields.');
       return;
     }
 
     setSubmitting(true);
+    setFieldErrors({});
 
     const payload: DemoLead = {
-      name: form.name.trim(),
-      email: form.email.trim(),
-      phone: form.phone.trim(),
-      number: form.phone.trim(),
-      message: form.message.trim(),
+      name: validation.values.name,
+      email: validation.values.email,
+      phone: validation.values.phone,
+      number: validation.values.phone,
+      message: validation.values.message,
       createdAt: new Date().toISOString(),
     };
 
@@ -104,10 +155,14 @@ export default function BookDemoModal() {
         success?: boolean;
         message?: string;
         redirectUrl?: string;
+        fieldErrors?: LeadFieldErrors;
       };
 
       if (!response.ok || !result.success) {
         setSubmitting(false);
+        if (result.fieldErrors) {
+          setFieldErrors(result.fieldErrors);
+        }
         setError(result.message || 'Could not save your details. Please try again.');
         return;
       }
@@ -173,16 +228,19 @@ export default function BookDemoModal() {
               </p>
             </div>
 
-            <form onSubmit={submitLead} style={{ padding: '22px 24px', display: 'grid', gap: '12px' }}>
+            <form noValidate onSubmit={submitLead} style={{ padding: '22px 24px', display: 'grid', gap: '12px' }}>
               <label style={{ display: 'grid', gap: '6px' }}>
                 <span style={{ fontSize: '13px', fontWeight: 600, color: '#334155' }}>Name *</span>
                 <input
+                  name="name"
                   value={form.name}
                   onChange={(event) => updateField('name', event.target.value)}
                   placeholder="Your full name"
                   style={inputStyle}
+                  autoComplete="name"
                   required
                 />
+                {fieldErrors.name ? <span style={fieldErrorStyle}>{fieldErrors.name}</span> : null}
               </label>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
@@ -190,22 +248,33 @@ export default function BookDemoModal() {
                   <span style={{ fontSize: '13px', fontWeight: 600, color: '#334155' }}>Email *</span>
                   <input
                     type="email"
+                    name="email"
                     value={form.email}
                     onChange={(event) => updateField('email', event.target.value)}
                     placeholder="you@company.com"
                     style={inputStyle}
+                    autoComplete="email"
                     required
                   />
+                  {fieldErrors.email ? <span style={fieldErrorStyle}>{fieldErrors.email}</span> : null}
                 </label>
                 <label style={{ display: 'grid', gap: '6px' }}>
                   <span style={{ fontSize: '13px', fontWeight: 600, color: '#334155' }}>Number *</span>
                   <input
+                    type="tel"
+                    name="phone"
                     value={form.phone}
                     onChange={(event) => updateField('phone', event.target.value)}
-                    placeholder="+91 98xxxxxx"
+                    onKeyDown={handlePhoneKeyDown}
+                    placeholder="+91 9876543210"
                     style={inputStyle}
+                    inputMode="tel"
+                    autoComplete="tel"
+                    pattern="^\\+?[0-9\\s().-]{7,20}$"
+                    title="Enter a mobile number with 7 to 15 digits, optionally starting with +."
                     required
                   />
+                  {fieldErrors.phone ? <span style={fieldErrorStyle}>{fieldErrors.phone}</span> : null}
                 </label>
               </div>
 
@@ -271,4 +340,10 @@ const inputStyle: CSSProperties = {
   fontSize: '14px',
   color: '#0f172a',
   background: '#ffffff',
+};
+
+const fieldErrorStyle: CSSProperties = {
+  fontSize: '12px',
+  lineHeight: 1.4,
+  color: '#dc2626',
 };
